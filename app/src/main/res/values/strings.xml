@@ -8,6 +8,7 @@
     <string name="account">Account</string>
     <string name="name">Name</string>
     <string name="save">Save</string>
+    <string name="back_press_exit_prompt">Press back again to exit</string>
     <string name="content_desc_photo_image_view">Selected Profile Photo</string>
     <string name="content_desc_photo_crop_button">Confirm Crop</string>
     <string name="profile_image_select_camera">Take a photo</string>

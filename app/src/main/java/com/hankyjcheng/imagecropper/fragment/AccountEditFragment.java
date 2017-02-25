@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -17,7 +16,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +32,7 @@ import java.io.IOException;
  * Created by hankcheng on 1/14/2017.
  */
 
-public class AccountEditFragment extends Fragment{
+public class AccountEditFragment extends Fragment {
 
     private final int REQUEST_CAMERA = 100;
     private final int REQUEST_GALLERY = 200;
@@ -58,7 +56,6 @@ public class AccountEditFragment extends Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Log.i("Fragment", "onCreateView");
         binding = DataBindingUtil.inflate(LayoutInflater.from(getContext()), R.layout.fragment_account_edit, container, false);
         if (bitmap != null) {
             updateProfilePicture(bitmap);
@@ -68,7 +65,6 @@ public class AccountEditFragment extends Fragment{
         }
         binding.editImageButton.setOnClickListener(editImageButtonListener);
         binding.nameEditText.setSingleLine();
-        //binding.nameEditText.setText(getUser().getName());
         return binding.getRoot();
     }
 
@@ -95,7 +91,6 @@ public class AccountEditFragment extends Fragment{
                     startImageCropFromGallery(data.getData());
                     break;
                 case REQUEST_IMAGE_CROP:
-                    Log.i("Crop", "Back");
                     if (data.hasExtra(EXTRA_BITMAP)) {
                         bitmap = data.getParcelableExtra(EXTRA_BITMAP);
                         binding.userImageView.setImageBitmap(bitmap);
@@ -136,8 +131,7 @@ public class AccountEditFragment extends Fragment{
     }
 
     private void useDefaultForImage() {
-        Bitmap defaultIcon = BitmapFactory.decodeResource(getResources(), R.drawable.ic_account_circle_grey_24dp);
-        binding.userImageView.setImageBitmap(defaultIcon);
+        binding.userImageView.setImageResource(R.drawable.ic_account_circle_grey_24dp);
     }
 
     private void useCameraForImage() {
@@ -157,7 +151,7 @@ public class AccountEditFragment extends Fragment{
                     startActivityForResult(cameraIntent, REQUEST_CAMERA);
                 }
             }
-            else{
+            else {
                 Toast.makeText(getActivity(), R.string.camera_not_available, Toast.LENGTH_SHORT).show();
             }
         }
@@ -175,12 +169,10 @@ public class AccountEditFragment extends Fragment{
         File storageDir = getContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File image = new File(storageDir, imageFileName + ".jpg");
         tempCameraPhotoPath = image.getAbsolutePath();
-        Log.i("TempPhotoPath", tempCameraPhotoPath + "");
         return image;
     }
 
     private void updateProfilePicture(Bitmap bitmap) {
-        Log.i("Bitmap Size", bitmap.getAllocationByteCount() + "");
         binding.userImageView.setImageBitmap(bitmap);
     }
 
