@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Image Cropper</string>
+
+    <string name="file_provider_authority">com.hankyjcheng.imagecropper</string>
+
+    <string name="change_profile_image">Change Profile Image</string>
+    <string name="account_edit">Edit Account Info</string>
+    <string name="account">Account</string>
+    <string name="name">Name</string>
+    <string name="save">Save</string>
+    <string name="content_desc_photo_image_view">Selected Profile Photo</string>
+    <string name="content_desc_photo_crop_button">Confirm Crop</string>
+    <string name="profile_image_select_camera">Take a photo</string>
+    <string name="profile_image_select_gallery">Select a photo</string>
+    <string name="profile_image_default">Use default image</string>
+    <string name="profile_image_crop">Crop Profile Image</string>
+    <string name="camera_not_available">Camera not available</string>
 </resources>

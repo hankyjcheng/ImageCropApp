@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="handler"
+            type="com.hankyjcheng.imagecropper.fragment.AccountEditFragment"/>
+
+        <variable
+            name="activeFragment"
+            type="android.support.v4.app.Fragment"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_background_primary"
+        android:orientation="vertical">
+
+        <com.hankyjcheng.imagecropper.view.CircleImageView
+            android:id="@+id/user_image_view"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"/>
+
+        <Button
+            android:id="@+id/edit_image_button"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:background="@null"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:text="@string/change_profile_image"
+            android:textColor="@color/color_accent_400"
+            android:textSize="14sp"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/name_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_margin="16dp"
+                android:hint="@string/name"
+                android:textColor="@color/color_text_primary"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+
+</layout>
